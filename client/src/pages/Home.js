@@ -1,6 +1,8 @@
 // client.src.pages.Home.js
 
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,7 +19,8 @@ class Home extends Component {
           "Wage Type",
           // Change this to the weeks / month / years
           "Total",
-        ]
+        ],
+        number: 1,
       },
       {
         name: "expense",
@@ -25,7 +28,8 @@ class Home extends Component {
           "Expense Type",
           // Change this to the weeks / month / years
           "Total",
-        ]
+        ],
+        number: 2,
       },
       {
         name: "consolidated",
@@ -33,19 +37,22 @@ class Home extends Component {
           "Net Change",
           // Change this to the weeks / month / years
           "Total",
-        ]
+        ],
+        number: 3,
       }
     ]
 
     return (
       <div>
         <h1>Home</h1>
-        {tables.map(tableName => (
-          <Table>
-            <TableHead>
-              <TableRow>
-                {tableName.tableHeaders.map(header => (
-                  <TableCell>{header}</TableCell>
+        
+        {(this.props.isAuth) ? "" :          
+          tables.map(tableName => (
+          <Table key={tableName.number}>
+            <TableHead key={tableName.number}>
+              <TableRow key={tableName.number}>
+                {tableName.tableHeaders.map((header, i) => (
+                  <TableCell key={i}>{header}</TableCell>
                 ))}
               </TableRow>
             </TableHead>
@@ -55,4 +62,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps
+)(Home);

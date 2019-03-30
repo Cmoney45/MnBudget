@@ -40,7 +40,7 @@ if (localStorage.jwtToken) {
 
 function UserLogout() {
     store.dispatch(logoutUser());
-    window.location.href = "./Home";
+    window.location.href = "./";
 }
 
 function App() {
@@ -55,7 +55,6 @@ function App() {
             <Route exact path="/register" component={Register} />
             <PrivateRoute exact path="/logout" component={UserLogout} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/home" component={Home} />
             <PrivateRoute exact path="/profile" component={Dashboard} />
             <Route component={NoMatch} />
           </Switch>

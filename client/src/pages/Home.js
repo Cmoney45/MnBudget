@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
+// import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -41,12 +41,12 @@ class Home extends Component {
         number: 3,
       }
     ]
-
+    console.log(this.props.isAuth)
     return (
       <div>
         <h1>Home</h1>
         
-        {(this.props.isAuth) ? "" :          
+        {(this.props.isAuth) ?        
           tables.map(tableName => (
           <Table key={tableName.number}>
             <TableHead key={tableName.number}>
@@ -56,7 +56,8 @@ class Home extends Component {
                 ))}
               </TableRow>
             </TableHead>
-          </Table>))}
+          </Table>))
+          : ""}
         </div>
     );
   }

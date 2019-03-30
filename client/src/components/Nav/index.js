@@ -90,6 +90,21 @@ class TemporaryDrawer extends React.Component {
 
     // Add routes matching the object in the array to add more profile routes
     const profileRoutes = [
+      (this.props.isAuth) ? {
+        text: "Add Income/Expense",
+        route: "/add",
+        number: 2,
+      } : "",
+      (this.props.isAuth) ? {
+        text: "Income",
+        route: "/income",
+        number: 3,
+      } : "",
+      (this.props.isAuth) ? {
+        text: "Expenses",
+        route: "/expense",
+        number: 4,
+      } : "",
       {
         text: (this.props.isAuth) ? "Profile" : "Register",
         route: (this.props.isAuth) ? "profile": "register",
@@ -99,7 +114,7 @@ class TemporaryDrawer extends React.Component {
         text: (this.props.isAuth) ? "Logout" : "Login",
         route: (this.props.isAuth) ? "logout" : "login",
         number: 2,
-      }
+      },
     ]
 
 
@@ -117,6 +132,8 @@ class TemporaryDrawer extends React.Component {
         <Divider />
         <List>
           {profileRoutes.map(route => (
+            //check if array is blank, don't add anything
+            route === "" ? "" :
             <Link to={`/${route.route}`} key={route.number}>
               <ListItem button key={route.number}>
 
@@ -140,7 +157,7 @@ class TemporaryDrawer extends React.Component {
                   Menu
                 </Button>
                 <Typography id="title" variant="h2" color="textPrimary" align="center" className={classes.grow}>
-                  Your App's Title!
+                  MnBudget
                 </Typography>
               </Toolbar>
             </AppBar>

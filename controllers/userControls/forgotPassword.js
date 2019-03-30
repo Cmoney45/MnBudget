@@ -1,3 +1,5 @@
+// controllers.userControls.forgotPassword.js
+
 const db = require("../../models");
 const crypto = require('crypto')
 require('dotenv').config();

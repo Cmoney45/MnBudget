@@ -1,6 +1,7 @@
 // models.index.js
 
 module.exports = {
-  Show: require("./Income"),
+  Income: require("./Income"),
+  Expense: require("./Expense"),
   User: require("./User")
 };

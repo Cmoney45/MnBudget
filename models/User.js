@@ -36,16 +36,16 @@ const userSchema = new Schema({
       default: Date.now
     },
   },
-  favoritedShows: [
+  userIncome: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Shows"
+      ref: "Income"
     }
   ],
-  watchList: [
+  userExpense: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Show"
+      ref: "Expense"
     }
   ],
 });

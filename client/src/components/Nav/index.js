@@ -97,12 +97,12 @@ class TemporaryDrawer extends React.Component {
       } : "",
       (this.props.isAuth) ? {
         text: "Income",
-        route: "/income",
+        route: "/incomeEntry",
         number: 3,
       } : "",
       (this.props.isAuth) ? {
         text: "Expenses",
-        route: "/expense",
+        route: "/expenseEntry",
         number: 4,
       } : "",
       {
@@ -123,7 +123,7 @@ class TemporaryDrawer extends React.Component {
         <List>
           {mainRoutes.map(route => (
             <Link to={`/${route.route}`} key={route.number}>
-              <ListItem button key={route.number}>
+              <ListItem button>
                 <ListItemText primary={route.text} />
               </ListItem>
             </Link>
@@ -134,8 +134,8 @@ class TemporaryDrawer extends React.Component {
           {profileRoutes.map(route => (
             //check if array is blank, don't add anything
             route === "" ? "" :
-            <Link to={`/${route.route}`} key={route.number}>
-              <ListItem button key={route.number}>
+            <Link to={`${route.route}`}>
+              <ListItem button >
 
                 <ListItemText primary={route.text} />
               </ListItem>

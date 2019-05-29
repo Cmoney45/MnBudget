@@ -17,6 +17,8 @@ import Login from "./components/auth/Login"
 import Register from "./components/auth/Register"
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import ExpenseEntry from "./pages/ExpenseEntry";
+import IncomeEntry from "./pages/IncomeEntry";
 
 
 // Check for token to keep user logged in
@@ -56,6 +58,8 @@ function App() {
             <PrivateRoute exact path="/logout" component={UserLogout} />
             <Route exact path="/login" component={Login} />
             <PrivateRoute exact path="/profile" component={Dashboard} />
+            <PrivateRoute exact path="/expenseEntry" component={ExpenseEntry} />
+            <PrivateRoute exact path="/incomeEntry" component={IncomeEntry} />
             <Route component={NoMatch} />
           </Switch>
         </div>

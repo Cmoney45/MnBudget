@@ -20,6 +20,18 @@ const incomeSchema = new Schema({
     type: String,
     required: true,
   },
+  frequency: {
+    type: String,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  // End date not required as to be open ended.
+  endDate: {
+    type: Date,
+  },
   comments: [
     {
       type: Schema.Types.ObjectId,

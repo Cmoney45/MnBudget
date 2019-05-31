@@ -52,7 +52,7 @@ const frequencies = [
 class Expense extends Component {
 
   state = {
-    name: 'Cat in the Hat',
+    name: '',
     amount: '',
     frequency: "Daily",
     startDate: '',
@@ -84,6 +84,15 @@ class Expense extends Component {
       <div>
         <h1>Expense Entry</h1>
         <form noValidate autoComplete="off">
+          <TextField
+            id="filled-name"
+            label="Expense Name"
+            className={classes.textField}
+            value={this.state.name}
+            onChange={this.handleChange('name')}
+            margin="normal"
+            variant="filled"
+          />
           <TextField
             id="standard-number"
             label="Number"
@@ -127,11 +136,11 @@ class Expense extends Component {
               shrink: true,
             }}
           />
-                    <TextField
+          <TextField
             id="endDate"
             label="End Date"
             type="date"
-            defaultValue="2017-05-24"
+            defaultValue=""
             onChange={this.handleChange('endDate')}
             className={classes.textField}
             InputLabelProps={{

@@ -3,7 +3,7 @@ node_modules
 client/node_modules
 
 # Any .env used.
-.env
+config/.env
 client/.env
 
 # Any bug reports
